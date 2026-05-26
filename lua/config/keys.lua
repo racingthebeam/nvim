@@ -189,15 +189,15 @@ end
 -- Shunt
 
 local shunt = require("local.shunt")
-set({ "n" },        '<leader>ss',    shunt.toggle,       { desc = 'Toggle shunt' })
-set({ "n", "v" },   '<leader>s<CR>', shunt.selection,    { desc = 'Shunt selection' })
-set({ "n" },        '<leader>sh',    shunt.hover,        { desc = 'Shunt hover (trimmed)' })
-set({ "n" },        '<leader>sH',    shunt.hover_full,   { desc = 'Shunt hover (full)' })
-set({ "n" },        '<leader>st',    shunt.type,         { desc = 'Shunt type' })
-set({ "n" },        '<leader>sw',    shunt.toggle_width, { desc = 'Toggle shunt width' })
-set({ "n", "v" },   '<leader>sc',    shunt.clear,        { desc = 'Clear shuntlist' })
-set({ "n" },        '<leader>sk',    shunt.kill,         { desc = 'Kill shunt entry' })
-set({ "n" },        '<leader>sy',    shunt.yank,         { desc = 'Yank shunt entry' })
+set({ "n" }, '<leader>ss', shunt.toggle, { desc = 'Toggle shunt' })
+set({ "n", "v" }, '<leader>s<CR>', shunt.selection, { desc = 'Shunt selection' })
+set({ "n" }, '<leader>sh', shunt.hover, { desc = 'Shunt hover (trimmed)' })
+set({ "n" }, '<leader>sH', shunt.hover_full, { desc = 'Shunt hover (full)' })
+set({ "n" }, '<leader>st', shunt.type, { desc = 'Shunt type' })
+set({ "n" }, '<leader>sw', shunt.toggle_width, { desc = 'Toggle shunt width' })
+set({ "n", "v" }, '<leader>sc', shunt.clear, { desc = 'Clear shuntlist' })
+set({ "n" }, '<leader>sk', shunt.kill, { desc = 'Kill shunt entry' })
+set({ "n" }, '<leader>sy', shunt.yank, { desc = 'Yank shunt entry' })
 
 --
 -- Neotree
