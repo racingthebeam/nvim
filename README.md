@@ -24,6 +24,8 @@ Window numbers are derived on-demand based on geometry, increasing from left to 
   - `<M-=>` - equalize width of all windows
   - `<M-S-=>` - focus on active window (make it 70% of the available horizontal space)
 
+Create windows as usual using e.g. `:sp` or `:vsp`. I typically only use vertical splits so the "equalise" and "focus" commands above sometimes result in undefined behaviour with horizontal splits. Not insurmountable, just never been a problem for me.
+
 ### File Tree (Neotree)
 
 Just standard Neotree, with a bit of customisation.
