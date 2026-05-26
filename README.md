@@ -65,7 +65,28 @@ Maintains a navigable list of buffers visited in each window.
   - `<leader>[` - previous window buffer
   - `<leader>]` - next window buffer
 
+### Git Integration
 
+Most of this is the `gitsigns` plugin.
+
+  - `<leader>gb` - popup line blame
+  - `<leader>gB` - open blame
+  - `<leader>gt` - toggle current line blame
+  - `<leader>gw` - toggle word diff
+  - `<leader>gd` - diff this
+  - `<leader>gD` - diff this (`~`)
+  - `<leader>gsb` - stage buffer
+  - `<leader>gsB` - reset buffer
+  - `<leader>gsh` - stage hunk (works in normal/visual mode)
+  - `<header>gsH` - reset hunk (works in normal/visual mode)
+  - `<leader>gg` - open Git client (`lazygit` on Linux, Sublime Merge on macOS) (see `lua/local/os.lua` for implementation)
+
+### Terminal Integration
+
+  - `<M-Enter>` - launch terminal in workspace directory
+  - `<M-S-Enter>` - launch terminal in active file directory
+
+These commands are specific to my setup, and defined in `lua/local/os.lua`. Opens iTerm on macOS, and spawns Alacritty via `i3-msg` on Linux.
 
 
 
