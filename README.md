@@ -12,6 +12,29 @@ Documentation is a work in progress. Heck, the whole repo is.
 
 In no particular order...
 
+### Window Manager (`lua/local/wm.lua`)
+
+A simple window manager based on numeric indices.
+
+Window numbers are derived on-demand based on geometry, increasing from left to right, top to bottom.
+
+  - `<M-{1-8}>` - jump to window 1-8
+  - `<M-S-{1-8}>` - move active buffer to window 1-8
+  - `<M-{Left,Right}>` - cycle active window left/right (with wraparound)
+  - `<M-=>` - equalize width of all windows
+  - `<M-S-=>` - focus on active window (make it 70% of the available horizontal space)
+
+### File Tree (Neotree)
+
+Just standard Neotree, with a bit of customisation.
+
+  - `<M-0>` - focus on Neotree, open if not visible
+  - `<M-S-0>` - toggle Neotree
+  - `y` - copy path to `"` register (prompts for options)
+  - `Y` - copy path to clipboard (prompts for options)
+  - `O` - show file in system file explorer
+  - `{1-8}` - open file in corresponding window index (window manager integration)
+
 ### `make` integration
 
   - `<F5>` - run `make`
@@ -85,18 +108,4 @@ These aren't all necessarily custom... more of an aide-memoire for me...
 
   - `:%Y` - yank all lines (or any other range) to system clipboard
   - `:%P` - paste over given range from system clipboard (not currently working)
-
-## Windows
-
-Window numbering is derived on-demand based on geometry, increasing from left to right.
-
-  - `<M-0>` - focus on Neotree, open if not visible
-  - `<M-S-0>` - toggle Neotree
-  - `<M-{1-4}>` - jump to window 1-4
-  - `<M-S-{1-4}>` - move active buffer to window 1-4
-  - `<M-{Left,Right}>` - cycle active window left/right (with wraparound)
-  - `<M-=>` - equalize width of all windows
-  - `<M-S-=>` - focus on active window (make it 70% of the available horizontal space)
-
-In Neotree, pressing `{1-4}` will open file in the corresponding window (assumes target window exists).
 
