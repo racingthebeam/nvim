@@ -117,7 +117,7 @@ local function clear()
   }
 end
 
-local group = vim.api.nvim_create_augroup("jwf_window_history", {
+local group = vim.api.nvim_create_augroup("rtb_window_history", {
   clear = true
 })
 

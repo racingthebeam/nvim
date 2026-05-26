@@ -8,11 +8,11 @@ return {
       require("todo-comments").setup({
         highlight = {
           multiline = false,
-          -- allow pattern to include assignee e.g. "TODO(jwf):"
+          -- allow pattern to include assignee e.g. "TODO(rtb):"
           pattern = [[.*<((KEYWORDS)\s*%(\(.{-1,}\))?)s*:]],
         },
         search = {
-          -- allow pattern to include assignee e.g. "TODO(jwf):"
+          -- allow pattern to include assignee e.g. "TODO(rtb):"
           pattern = [[\b(KEYWORDS)\s*(\(\w*\))?\s*:]],
         }
       })
@@ -100,7 +100,7 @@ return {
       },
       -- gitbrowse - open buffer's git repo in browser
       gitbrowse = {},
-      input = { }
+      input = {}
     }
   },
 }

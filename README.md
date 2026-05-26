@@ -33,6 +33,14 @@ Shunt is a plugin for storing transitory reference material; I use it mostly for
 
 For best results, `shunt type` needs to be implemented per-filetype. I haven't got around to implementing any yet, but if you're up for it, they are defined in `shunt_type.lua`.
 
+### Window History (`lua/local/window-history.lua`)
+
+Maintains a navigable list of buffers visited in each window.
+
+  - `<leader>[` - previous window buffer
+  - `<leader>]` - next window buffer
+
+
 
 
 
