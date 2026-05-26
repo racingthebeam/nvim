@@ -19,6 +19,35 @@ local has_neotree = has("neo-tree.nvim")
 local has_treehopper = has("nvim-treehopper")
 local has_snacks = has("snacks")
 
+--
+-- Build system/quickfix
+
+-- F5 - `make`
+-- Open quickfix if there are errors, close otherwise
+vim.keymap.set('n', '<F5>', function()
+  vim.cmd('make! build')
+  local errors = vim.tbl_filter(function(item)
+    return item.valid == 1
+  end, vim.fn.getqflist())
+  if #errors > 0 then
+    vim.cmd('copen')
+  else
+    vim.cmd('cclose')
+  end
+end, { desc = 'Build' })
+
+-- F6 - `make run` and run in split
+-- Note to self: `:q` doesn't kill process, use `:bd!`
+-- If you accidentally use `:q`, use `:ls` to find buffer then `:buffer N` to bring
+-- it to foreground.
+vim.keymap.set('n', '<F6>', function()
+  vim.cmd('split | terminal make run')
+end, { desc = 'Run' })
+
+vim.keymap.set('n', ']q', ':cnext<CR>', { desc = 'Next quickfix error' })
+vim.keymap.set('n', '[q', ':cprev<CR>', { desc = 'Prev quickfix error' })
+vim.keymap.set('n', '<leader>Q', ':cclose<CR>', { desc = 'Close quickfix' })
+
 -- Augment <C-l> to turn off search highlighting
 set('n', '<C-l>', ':nohl<cr><C-l>', { desc = 'Cancel search highlighting' })
 
