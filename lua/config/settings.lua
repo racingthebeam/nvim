@@ -19,6 +19,15 @@ return {
     "go",
     "lua",
   },
+
+  -- Configure LSP code actions to run on save here
+  code_actions_on_save = {
+    go = {
+      "source.organizeImports",
+    }
+  },
+
+  -- Shunt config
   shunt = {
     narrow_width = function() return 60 end,
     wide_width   = function() return 100 end,

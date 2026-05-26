@@ -12,6 +12,20 @@ Documentation is a work in progress. Heck, the whole repo is.
 
 In no particular order...
 
+### Config (`lua/config/`)
+
+A bunch of files:
+
+  - `keys.lua` - I try to define all keybindings in one place, rather than scattering them around plugin configuration. There's also a `keys/` subdir for complex feature-specific keybindings.
+  - `lazy.lua` - `lazy.nvim` package manager
+  - `lsp.lua` - LSP related stuff
+    - per-language LSP enable
+    - completion/diagnostic config
+    - run code actions on save
+    - run format on save (defaults to stripping trailing whitespace if no LSP formatter available)
+  - `opts.lua` - vim options; leader config, clipboard, line numbering, etc
+  - `settings.lua` - this is where I configure my config! Some plugins have options I want to tweak in a more declarative way; this is where those options live.
+
 ### Window Manager (`lua/local/wm.lua`)
 
 A simple window manager based on numeric indices.
@@ -88,7 +102,11 @@ Most of this is the `gitsigns` plugin.
 
 These commands are specific to my setup, and defined in `lua/local/os.lua`. Opens iTerm on macOS, and spawns Alacritty via `i3-msg` on Linux.
 
+### Auto-wrapping (`lua/local/autowrap.lua`)
 
+Automatically configures word-wrapping on a per-filetype basis. `ftplugin` is useless for this because wrapping is a window-level feature, not buffer-level.
+
+`autowrap.lua` contains a map of filetypes for which autowrapping should be enabled.
 
 
 

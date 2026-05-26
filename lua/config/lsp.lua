@@ -5,11 +5,7 @@ vim.lsp.enable('gopls')
 vim.lsp.enable('zls')
 vim.lsp.enable('ts')
 
-local code_actions_on_save = {
-  go = {
-    "source.organizeImports",
-  },
-}
+local code_actions_on_save = require("config.settings").code_actions_on_save
 
 -- Check if the given buffer has an LSP capable of formatting the file
 local function has_formatter(buf)
