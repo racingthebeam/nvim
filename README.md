@@ -53,7 +53,7 @@ Just standard Neotree, with a bit of customisation.
 
 ### `make` integration
 
-  - `<F5>` - run `make`
+  - `<F5>` - run `make build`
   - `<F6>` - run `make run`; shell output appears in split shell (use `:bd!` to kill, not `:q`, otherwise the process will persist)
 
 ### Shunt (`lua/local/shunt.lua`)
