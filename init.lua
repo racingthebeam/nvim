@@ -1,7 +1,7 @@
 vim.cmd("set shortmess+=I")
 
 require("config.lazy")
-
+require("config.treesitter")
 require("config.lsp")
 
 require("local.autowrap")
