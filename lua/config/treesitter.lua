@@ -12,7 +12,7 @@ local languages = {
   'd', 'dart', 'devicetree', 'diff', 'dockerfile',
   'elixir', 'elm',
   'go', 'gomod', 'gosum',
-  'html',
+  'hcl', 'html',
   'javascript', 'json',
   'lua',
   'make', 'markdown', 'markdown_inline',

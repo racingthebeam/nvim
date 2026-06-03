@@ -4,6 +4,7 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('gopls')
 vim.lsp.enable('zls')
 vim.lsp.enable('ts')
+vim.lsp.enable('terraform')
 
 local code_actions_on_save = require("config.settings").code_actions_on_save
 
