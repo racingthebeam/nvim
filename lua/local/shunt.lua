@@ -1,18 +1,18 @@
-local M = {}
+local M            = {}
 
-local Path     = require("plenary.path")
-local settings = require("config.settings")
+local Path         = require("plenary.path")
+local settings     = require("config.settings")
 
 local cfg          = settings.shunt or {}
 local narrow_width = cfg.narrow_width or function() return 60 end
-local wide_width   = cfg.wide_width   or function() return 100 end
-local get_height   = cfg.height       or function() return vim.o.lines - 2 end
+local wide_width   = cfg.wide_width or function() return 100 end
+local get_height   = cfg.height or function() return vim.o.lines - 2 end
 
 -- State
-local entries = {}
-local buf     = nil
-local win     = nil
-local is_wide = false
+local entries      = {}
+local buf          = nil
+local win          = nil
+local is_wide      = false
 
 -- ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -29,14 +29,14 @@ end
 
 local function get_buffer()
   if buf and vim.api.nvim_buf_is_valid(buf) then return buf end
-  buf = vim.api.nvim_create_buf(false, true)
-  vim.bo[buf].buftype   = "nofile"
-  vim.bo[buf].swapfile  = false
-  vim.bo[buf].bufhidden = "hide"
+  buf                    = vim.api.nvim_create_buf(false, true)
+  vim.bo[buf].buftype    = "nofile"
+  vim.bo[buf].swapfile   = false
+  vim.bo[buf].bufhidden  = "hide"
   vim.bo[buf].modifiable = false
-  vim.bo[buf].readonly  = true
-  vim.bo[buf].filetype  = "shunt"
-  vim.bo[buf].syntax    = "markdown"
+  vim.bo[buf].readonly   = true
+  vim.bo[buf].filetype   = "shunt"
+  vim.bo[buf].syntax     = "markdown"
   vim.api.nvim_buf_set_name(buf, "[Shunt]")
   vim.treesitter.start(buf, "markdown")
   return buf
@@ -60,7 +60,7 @@ end
 
 local function open_window()
   if win and vim.api.nvim_win_is_valid(win) then return win end
-  win = vim.api.nvim_open_win(get_buffer(), false, win_config(get_width()))
+  win                   = vim.api.nvim_open_win(get_buffer(), false, win_config(get_width()))
   vim.wo[win].wrap      = true
   vim.wo[win].linebreak = true
   return win
@@ -204,8 +204,8 @@ local function extract_selection(b)
     local lines = vim.api.nvim_buf_get_lines(b, ls - 1, le, false)
 
     if mode == "v" then
-      lines[1]       = string.sub(lines[1], cs)
-      lines[#lines]  = string.sub(lines[#lines], 1, ce)
+      lines[1]      = string.sub(lines[1], cs)
+      lines[#lines] = string.sub(lines[#lines], 1, ce)
     elseif mode == "\22" then
       for i, l in ipairs(lines) do
         lines[i] = string.sub(l, cs, ce)
@@ -282,7 +282,7 @@ end
 M.hover      = function() hover_impl(true) end
 M.hover_full = function() hover_impl(false) end
 
-M.type = function()
+M.type       = function()
   local params = vim.lsp.util.make_position_params(0, "utf-8")
   local qbuf   = vim.api.nvim_get_current_buf()
   local ft     = vim.bo[qbuf].filetype
@@ -306,7 +306,7 @@ M.type = function()
   end)
 end
 
-M.yank = function()
+M.yank       = function()
   if #entries == 0 then
     vim.notify("Shunt: nothing to yank", vim.log.levels.INFO)
     return
@@ -323,13 +323,13 @@ M.yank = function()
   vim.notify(string.format("Shunt: yanked entry %d", n), vim.log.levels.INFO)
 end
 
-M.clear = function()
+M.clear      = function()
   entries = {}
   render()
   close_window()
 end
 
-M.kill = function()
+M.kill       = function()
   if #entries == 0 then
     vim.notify("Shunt: nothing to kill", vim.log.levels.INFO)
     return
@@ -349,7 +349,7 @@ end
 
 -- ─── Autocmds ────────────────────────────────────────────────────────────────
 
-local group = vim.api.nvim_create_augroup("shunt", { clear = true })
+local group  = vim.api.nvim_create_augroup("shunt", { clear = true })
 
 vim.api.nvim_create_autocmd("VimResized", {
   group = group,
