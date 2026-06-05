@@ -1,10 +1,11 @@
 -- Configuration for native LSP/completion stuff
 
-vim.lsp.enable('lua_ls')
 vim.lsp.enable('gopls')
-vim.lsp.enable('zls')
-vim.lsp.enable('ts')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('swift')
 vim.lsp.enable('terraform')
+vim.lsp.enable('ts')
+vim.lsp.enable('zls')
 
 local code_actions_on_save = require("config.settings").code_actions_on_save
 
