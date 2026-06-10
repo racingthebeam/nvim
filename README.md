@@ -8,6 +8,14 @@ It's written purely for myself, but please feel free to take anything you like.
 
 Documentation is a work in progress. Heck, the whole repo is.
 
+## Dependencies
+
+  - Formatting
+    - `clang-format`
+    - `gofmt`
+  - Highlighting etc.
+    - `tree-sitter` (commonly installed via `tree-sitter-cli`)
+
 ## Features
 
 In no particular order...
