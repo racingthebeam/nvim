@@ -18,6 +18,7 @@ local has_telescope = has("telescope.nvim")
 local has_neotree = has("neo-tree.nvim")
 local has_treehopper = has("nvim-treehopper")
 local has_snacks = has("snacks")
+local has_conform = has("conform.nvim")
 
 --
 -- Build system/quickfix
@@ -118,7 +119,7 @@ if has_telescope then
 end
 
 --
--- Buffer navigation
+-- Buffers
 
 -- Quick
 if has_telescope then
@@ -135,11 +136,18 @@ if has_telescope then
   local ts = require("telescope.builtin")
   set('n', '<leader>bb', ts.buffers, { desc = 'Telescope buffers' })
 end
+
 set('n', '<leader>b[', ':WinHist prev<cr>', { desc = 'Previous window buffer' })
 set('n', '<leader>b]', ':WinHist next<cr>', { desc = 'Next window buffer' })
 set('n', '<leader>bl', ':WinHist list<cr>', { desc = 'List window buffers' })
 set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
 set('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
+
+if has_conform then
+  set({ 'n', 'v' }, '<leader>bf', function()
+    require("conform").format({ async = true })
+  end, { desc = 'Format buffer' })
+end
 
 --
 -- Gitsigns
