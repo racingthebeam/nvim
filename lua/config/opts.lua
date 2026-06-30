@@ -61,12 +61,12 @@ vim.opt.splitbelow = true
 -- Save undo history
 vim.opt.undofile = true
 
--- Only default to rounded borders if we're not using CoC; something in
--- that plugin gets completely messed up if this is enabled.
-if not S.lsp.coc then
-  vim.opt.winborder = 'rounded'
-end
+-- Rounded window borders
+vim.opt.winborder = 'rounded'
 
 -- Disable backups to avoid confusing LSPs
 vim.opt.backup = false
 vim.opt.writebackup = false
+
+-- Disable auto comments
+vim.opt.formatoptions:remove({ 'r', 'o' })
