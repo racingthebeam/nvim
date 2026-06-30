@@ -2,6 +2,7 @@ return {
   "stevearc/conform.nvim",
   opts = {
     formatters_by_ft = {
+      arduino = { "clang-format" },
       c = { "clang-format" },
       cpp = { "clang-format" },
       go = { "gofmt" },
