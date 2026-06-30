@@ -3,6 +3,7 @@
 vim.lsp.enable('gopls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('swift')
+vim.lsp.enable('rust')
 vim.lsp.enable('terraform')
 vim.lsp.enable('ts')
 vim.lsp.enable('zls')
